@@ -47,7 +47,7 @@
                 <configuration>
                     <properties>
                         <allure.issues.tracker.pattern>http://example.com/%s</allure.issues.tracker.pattern>
-                        <resultsDirectory>${project.basedir}/target/allure-reports</resultsDirectory>
+                        <resultsDirectory>${project.basedir}/target/allure-results</resultsDirectory>
                         <reportDirectory>${project.basedir}/target/allure-reports</reportDirectory>
                     </properties>
                 </configuration>
