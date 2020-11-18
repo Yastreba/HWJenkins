@@ -4,7 +4,10 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.function.Function;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -15,7 +18,11 @@ public class BasePage {
 
     public BasePage waitForPageToLoad() {
         new WebDriverWait(WebDriverRunner.getWebDriver(), 10).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+                new Function<WebDriver, Object>() {
+                    public Object apply(WebDriver webDriver) {
+                        return ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete");
+                    }
+                });
         return this;
     }
 
