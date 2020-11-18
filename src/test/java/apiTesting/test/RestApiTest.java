@@ -106,7 +106,6 @@ public class RestApiTest {
 
     @Test
     public void postEmployeeTestNegative() {
-        //try wrong method
         String endpoint = "create";
         PostEmployee employee = new PostEmployee("Thomas", "675432", "43");
 
@@ -119,23 +118,23 @@ public class RestApiTest {
                 .statusCode(405);
     }
 
-//    @Test
-//    public void putEmployeeTestPositive() {
-//        String endpoint = "update/40";
-//        PostEmployee employee = new PostEmployee("Thomas", "675432", "43");
-//        PutEmployeeResponse expectedResponse = new PutEmployeeResponse("success", new ArrayList<>(), "Successfully! Record has been updated.");
-//        PutEmployeeResponse response = given()
-//                .with()
-//                .body(employee)
-//                .put(endpoint)
-//                .then()
-//                .log().all()
-//                .statusCode(200)
-//                .assertThat()
-//                .extract()
-//                .as(PutEmployeeResponse.class);
-//        assertEquals(response, expectedResponse);
-//    }
+    @Test
+    public void putEmployeeTestPositive() {
+        String endpoint = "update/40";
+        PostEmployee employee = new PostEmployee("Thomas", "675432", "43");
+        PutEmployeeResponse expectedResponse = new PutEmployeeResponse("success", new ArrayList<>(), "Successfully! Record has been updated.");
+        PutEmployeeResponse response = given()
+                .with()
+                .body(employee)
+                .put(endpoint)
+                .then()
+                .log().all()
+                .statusCode(200)
+                .assertThat()
+                .extract()
+                .as(PutEmployeeResponse.class);
+        assertEquals(response, expectedResponse);
+    }
 
     @Test
     public void putEmployeeTestNegative() {
