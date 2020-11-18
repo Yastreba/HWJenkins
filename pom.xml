@@ -63,7 +63,7 @@
                 <version>2.10.0</version>
                 <configuration>
                     <reportVersion>2.13.2</reportVersion>
-                    <resultsDirectory>${project.basedir}/target/allure-reports</resultsDirectory>
+                    <resultsDirectory>${project.basedir}/target/allure-results</resultsDirectory>
                     <reportDirectory>${project.basedir}/target/allure-reports</reportDirectory>
                 </configuration>
             </plugin>
